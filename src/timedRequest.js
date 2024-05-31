@@ -50,8 +50,9 @@ function dequeueRequest() {
     const { url } = queue.shift(); 
     fetch(url, {
       method: 'get', 
+      mode: 'no-cors',
       headers: new Headers({
-        'Access-Control-Allow-Origin': '*'
+        'Content-Type': 'text/plain',
       })
     })
       .then(res => res.json())
