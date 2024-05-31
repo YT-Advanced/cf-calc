@@ -48,7 +48,7 @@ function dequeueRequest() {
     processing = true; 
     const startMillis = Date.now(); 
     const { url } = queue.shift(); 
-    fetch(url, headers: new Headers({'Access-Control-Allow-Origin': '*'})
+    fetch(url, headers: new Headers({'Access-Control-Allow-Origin': '*'}))
       .then(res => res.json())
       .then(data => promisesFn.get(url).forEach(({ resolve }) => resolve(data)))
       .catch(err => promisesFn.get(url).forEach(({ reject }) => reject(err)))
